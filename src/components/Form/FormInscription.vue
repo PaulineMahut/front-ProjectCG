@@ -1,5 +1,5 @@
 <template>
-  <div class="form">
+  <div class="container">
     <h1>Inscription</h1>
     <form class="form" @submit.prevent="Inscription">
       <label for="nom">Nom</label>
@@ -73,10 +73,8 @@
 
 <script setup>
 import { useClientStore } from "../../stores/clients";
-// import { useTokenStore } from "../../stores/token";
 import axios from "axios";
 
-// const store = useTokenStore();
 const clientStore = useClientStore();
 
 const newClient = {
@@ -100,23 +98,20 @@ async function Inscription() {
     })
     .then((resp) => {
       return resp;
-      // r.status a mettre dans le .then
     })
     .catch((e) => console.log(e));
   console.log(r);
-  //   if (r.status == 400) {
-  //     clientStore.error = "Champs invalide";
-  //   }
-
-  //   if (r.status == 422) {
-  //     clientStore.error = "Unprocessable entity";
-  //   }
 }
 </script>
 
 <style scoped>
-.form {
+form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+form input {
+  padding: 2rem;
 }
 </style>
